@@ -1,0 +1,19 @@
+
+
+log.info("*************************");
+debugger;
+var workflowData = workItem.getWorkflowData();
+if (workflowData.getPayloadType() == "JCR_PATH") {
+    var path = workflowData.getPayload().toString();
+    if (workflowSession.getSession().itemExists(path)) { 
+        var session = workflowSession.getSession();
+ log.error("DB Page path"+path);
+        var node=session.getNode(path+"/jcr:content");
+        node.setProperty("pageCreated", true);
+        node.save();
+        log.info("DB Page Property Added"+node);
+
+       } else {
+        log.warn("DB Item does not exist: " + path);
+    }
+}

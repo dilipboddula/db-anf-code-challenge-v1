@@ -1,0 +1,16 @@
+<template data-sly-template.article="${@ list, item}">
+    <article>
+<img src="${item.urlImage}" alt="Girl in a jacket" width="150" height="150">
+        <a class="cmp-list__item-link" href="${item.url}" >
+
+
+            <span class="cmp-list__item-title">${item.title}</span>
+            <span data-sly-test="${list.showModificationDate}"
+                  class="cmp-list__item-date">${list.dateFormatString @format=item.lastModified}</span>
+        </a>
+        <span data-sly-test="${list.showModificationDate}"
+                  class="cmp-list__item-date">${list.dateFormatString @format=item.lastModified}</span>
+        <div class="cmp-list__item-description">${item.description @ context = 'html'}</div>
+
+    </article>
+</template>

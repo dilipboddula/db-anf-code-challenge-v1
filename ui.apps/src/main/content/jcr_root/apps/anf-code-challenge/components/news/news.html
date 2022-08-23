@@ -1,0 +1,9 @@
+Hello World
+<div data-sly-use.list="com.anf.core.models.NewsFeedModel" data-sly-list.item="${list.listItems}"
+data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+data-sly-use.itemTemplate="item.html"
+data-sly-test.itemType="${properties.itemType ? properties.itemType : 'item'}"
+class="cmp-list">
+    <div class="cmp-list__item" data-sly-call="${itemTemplate[itemType] @ list = list, item = item}"></div>
+    <br>
+</div>
